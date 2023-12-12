@@ -31,7 +31,8 @@ void display()
     branch *temp = head;
     while (temp != NULL)
     {
-        cout << temp->ID << "\n " << temp->name << " \n" << temp->manager << "\n";
+        cout << temp->ID << "\n " << temp->name << " \n"
+             << temp->manager << "\n";
         temp = temp->next;
     }
 }
@@ -125,7 +126,7 @@ void sort()
     double temp;
     for (i = head2; i->next != NULL; i = i->next)
     {
-        for (j = i->next; j != NULL; j = j-> next)
+        for (j = i->next; j != NULL; j = j->next)
         {
             if (i->balance > j->balance)
             {
@@ -244,7 +245,7 @@ int main()
         {
         case '1':
             cout << "Enter Branch's ID : ";
-             cin >> id;
+            cin >> id;
             getline(cin, id);
             cout << "Enter Branch's Name : ";
             // cin >> name;
@@ -312,3 +313,4 @@ int main()
     }
     return 0;
 }
+//بتعمل ايه هنا يا علق
