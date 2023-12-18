@@ -27,7 +27,10 @@ void InsertB(string id, string name, string manger) // Insert in the Beginning
     head = temp;
 }
 void display()
-{
+{   
+    if(head == NULL){
+        cout<<"List is Empty\n";
+    }
     branch *temp = head;
     while (temp != NULL)
     {
@@ -169,7 +172,6 @@ void deleteitemh(string idd)
     else
     {
         holder *temp1 = head2;
-        holder *temp2 = NULL;
         if (head2->ID == idd)
         {
             head2 = head2->next;
@@ -177,6 +179,7 @@ void deleteitemh(string idd)
         }
         else
         {
+        holder *temp2 = NULL;
             while (temp1->ID != idd && temp1 != NULL)
             {
                 temp2 = temp1;
@@ -232,9 +235,9 @@ void abdo()
 }
 int main()
 {
-    rr();
+       rr();
     string id, manager, name, address;
-    double balance = 0.0;
+    int balance = 0;
     while (true)
     {
         abdo();
@@ -246,13 +249,10 @@ int main()
         case '1':
             cout << "Enter Branch's ID : ";
             cin >> id;
-            getline(cin, id);
             cout << "Enter Branch's Name : ";
-            // cin >> name;
-            getline(cin, name);
+            cin >> name;
             cout << "Enter Branch's Manager : ";
-            getline(cin, manager);
-            // cin >> manager;
+            cin >> manager;
             InsertB(id, name, manager);
             break;
         case '2':
@@ -267,8 +267,7 @@ int main()
             cout << "Enter Holder's ID : ";
             cin >> id;
             cout << "Enter Holder's Name : ";
-            getline(cin, name);
-            // cin >> name;
+            cin >> name;
             cout << "Enter Holder's Address : ";
             cin >> address;
             cout << "Enter Holder's Balance : ";
@@ -276,7 +275,7 @@ int main()
             insertBh(id, name, address, balance);
             break;
         case '5':
-            cout << "Enter Branch's ID : ";
+            cout << "Enter Holder's ID : ";
             cin >> id;
             deleteitemh(id);
             break;
@@ -284,7 +283,7 @@ int main()
             displayh();
             break;
         case '7':
-            cout << "Enter Branch's Name : ";
+            cout << "Enter Holder's Name : ";
             cin >> name;
             searchhN(name);
             break;
@@ -293,15 +292,11 @@ int main()
             cin >> id;
             cout << "Enter Holder's Name : ";
             cin >> name;
-            getline(cin, name);
             cout << "Enter Holder's Address : ";
             cin >> address;
             cout << "Enter Holder's Balance : ";
             cin >> balance;
             updateh(id, name, address, balance);
-            break;
-        case '9':
-            sort();
             break;
         case 'x':
             return 0;
@@ -313,6 +308,14 @@ int main()
     }
     return 0;
 }
-//nlafjpa
-//;palk
-//بتعمل ايه هنا يا علق
+// void displayHolders(branch *branch)
+// {
+//    holder *temp = branch->head;
+//    while (temp != NULL)
+//    {
+//        cout << temp->ID << "\n " << temp->name << " \n"
+//             << temp->adress << "\n"
+//             << temp->balance << "\n";
+//        temp = temp->next;
+//    }
+// }
